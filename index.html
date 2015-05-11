@@ -1,11 +1,46 @@
-<head>
-        <title>power point</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body style="margin: 0; padding: 0;">
-        <div  style="width: 960px; height: 550px; margin:auto;">
-            
-        <iframe src="https://onedrive.live.com/embed?cid=E55FEDB2257DEBA4&resid=E55FEDB2257DEBA4%21165&authkey=AMkifdD_2LwRdWA&em=2" width="960" height="550" frameborder="0" scrolling="no"></iframe>
-        </div>
-        </body>
-</html>
+ <HTML>
+<HEAD>
+<TITLE> Example 4  </TITLE>
+</HEAD>
+
+<?  
+
+// Initialize variables from form
+$name = $_POST['name'];
+$favcolor = $_POST['favcolor'];
+$yearborn = $_POST['yearborn'];
+
+// encode any special characters in these variables
+$encoded_name = htmlentities($name);
+$encoded_favcolor = htmlentities($favcolor);
+
+
+// print the body tag containing the person's favorite color
+// as a background
+
+
+
+print("<body bgcolor=$encoded_favcolor>");
+
+// print the person's name
+print("Hello $encoded_name<br>");
+
+
+// Get the current date and store it in $currentdate, an array
+// Retrieve the year from the $currentdate array and store it in
+// a variable called $year, this will be used in calculating the age
+$currentdate = getdate();
+$year = $currentdate["year"]; 
+
+// Calculate age using the $yearborn field from the submitted form
+
+$age = $year - $yearborn;
+
+// print the person's age
+print("You are $age years old");
+
+
+?>
+
+</BODY>
+</HTML> 
